@@ -81,10 +81,10 @@ local opts = {
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Welcome" },
   ["r"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-  -- ["b"] = {
-  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Buffers",
-  -- },
+  ["b"] = {
+    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "Buffers",
+  },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
   -- ["q"] = { "<cmd>q!<CR>", "Quit" },
@@ -107,17 +107,9 @@ local mappings = {
     -- "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
     "Find Symobls",
   },
-  ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
-  ["P"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
+  ["p"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
 
-  ["t"] = {
-    "<cmd>UltestSummary<CR>", "Unit Test"
-  },
-
-  ["o"] = {
-    "<cmd>SymbolsOutline<CR>", "Outline"
-  },
   ["v"] = {
     "<cmd>lua require('telescope').extensions.neoclip.default(require('telescope.themes').get_ivy())<cr>",
     "Clipboard Manager"

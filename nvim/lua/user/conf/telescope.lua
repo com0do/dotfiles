@@ -162,6 +162,7 @@ telescope.setup {
     find_files = {
       theme = "dropdown",
       previewer = false,
+      --winblend = 40,
       -- find_command = { "find", "-type", "f" },
       find_command = { "fd", "-H" , "-I"},  -- "-H" search hidden files, "-I" do not respect to gitignore
     },
@@ -211,6 +212,6 @@ telescope.setup {
 telescope.load_extension('fzf')
 telescope.load_extension("ui-select")
 telescope.load_extension('dap')
--- telescope.load_extension('vim_bookmarks')
+telescope.load_extension('vim_bookmarks')
 telescope.load_extension("live_grep_args")
 -- load project extension. see project.lua file

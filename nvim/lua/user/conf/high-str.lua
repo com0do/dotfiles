@@ -30,7 +30,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
     "v",
-    "<leader>hr",
+    "<leaderjhr",
     ":<c-u>HSRmHighlight<CR>",
     {
         noremap = true,

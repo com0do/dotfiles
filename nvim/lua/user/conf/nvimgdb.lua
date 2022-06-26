@@ -66,6 +66,7 @@ _G.CloseWatchBuffers = function()
   end, 10)
 end
 
+-- GdbStart gdb -p `pgrep program` 
 vim.api.nvim_set_keymap("n", "<leader>dr", "<cmd>GdbStart gdbr<cr>", {})
 vim.api.nvim_set_keymap("n", "<leader>dd", "<cmd>lua StartGdbSession()<cr>", {})
 vim.api.nvim_set_keymap("n", "<leader>dc", "<cmd>lua CreateWatch()<cr>", {})

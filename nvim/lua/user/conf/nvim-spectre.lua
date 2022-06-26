@@ -11,6 +11,11 @@ end
 spectre.setup(
     {
         mapping = {
+            ["quit"] = {
+              map = "q",
+              cmd = "<cmd>:q<CR>",
+              desc = "quit"
+            },
             -- 删除选中
             ["toggle_line"] = {
                 map = "dd",

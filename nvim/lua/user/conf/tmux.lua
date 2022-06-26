@@ -1,6 +1,6 @@
 local status_ok, tmux = pcall(require, "tmux")
 if not status_ok then
-  vim.notify("tmux not found!")
+  --vim.notify("tmux not found!")
   return
 end
 

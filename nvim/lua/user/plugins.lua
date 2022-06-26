@@ -75,12 +75,15 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
+  use "lewis6991/impatient.nvim" -- Speed up loading Lua modules
   -- My plugins here
+  use "tpope/vim-unimpaired"
+  --use "justinmk/vim-dirvish"
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "lewis6991/impatient.nvim" -- Speed up loading Lua modules    TODO: figure out how to use this
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "rcarriga/nvim-notify" -- notify
+  use "tami5/sqlite.lua"  -- NOTE: need to install sqlite lib
   use "kyazdani42/nvim-web-devicons" -- icons
 
   -- Telescope
@@ -94,25 +97,20 @@ return packer.startup(function(use)
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   }
 
-  -- use {
-  --   "nvim-telescope/telescope-frecency.nvim",
-  --   requires = {"tami5/sqlite.lua"}   -- NOTE: need to install sqlite lib
-  -- }
+  --use "nvim-telescope/telescope-frecency.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
   use "nvim-telescope/telescope-rg.nvim"
-  -- use "MattesGroeger/vim-bookmarks"
-  -- use "tom-anders/telescope-vim-bookmarks.nvim"
+  use "MattesGroeger/vim-bookmarks"
+  use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-dap.nvim"
 
   -- Treesittetr
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    commit = "44b7c8100269161e20d585f24bce322f6dcdf8d2",
   }
   use {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    commit = "c81382328ad47c154261d1528d7c921acad5eae5",
   } -- enhance texetobject selection
   use "romgrk/nvim-treesitter-context" -- show class/function at the top
   -- -- use "m-demare/hlargs.nvim"
@@ -163,8 +161,7 @@ return packer.startup(function(use)
   --   run = 'bash ./install.sh',
   -- }
   use "ethanholz/nvim-lastplace" -- auto return back to the last modified positon when open a file
-  -- use "BurntSushi/ripgrep" -- ripgrep
-  -- use "nvim-pack/nvim-spectre" -- search and replace pane
+  use "nvim-pack/nvim-spectre" -- search and replace pane
   -- use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
   -- use "code-biscuits/nvim-biscuits" -- AST enhance, require treesitter
   use "tpope/vim-repeat" --  . command enhance
@@ -191,10 +188,7 @@ return packer.startup(function(use)
 
   -- Debugger
   use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
-  use {
-    "ravenxrz/nvim-dap",
-    -- commit = "f9480362549e2b50a8616fe4530deaabbc4f889b",
-  }
+  use "ravenxrz/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   -- use "mfussenegger/nvim-dap-python"    -- debug python
@@ -230,11 +224,10 @@ return packer.startup(function(use)
   -- use "folke/tokyonight.nvim"
   use {
     "kyazdani42/nvim-tree.lua",
-    commit = "6abc87b1d92fc8223f1e374728ea45c848bfdf6d"
   } -- file explore
   use {
-    "akinsho/bufferline.nvim", -- tab
-    tag = "v1.2.0",
+    --"seblj/nvim-tabline", -- tab
+    "akinsho/bufferline.nvim"
   }
   -- use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim" -- status line
@@ -261,16 +254,14 @@ return packer.startup(function(use)
   -- litee family
   use {
     "ldelossa/litee.nvim",
-    commit = "47235cb807a83af866e06ce654b28efcfe347c60"
   }
   use {
     "ldelossa/litee-calltree.nvim",
-    commit = "3f3c25e584558949b1eda38ded76eade28fa5fd6"
   }
 
   -- tools
   -- use "cdelledonne/vim-cmake"
-  use "aserowy/tmux.nvim"   -- NOTE: 可能造成卡顿
+  --use "aserowy/tmux.nvim"   -- NOTE: 可能造成卡顿
   use "ravenxrz/neovim-cmake"
   use {
     "skanehira/preview-markdown.vim",
@@ -281,15 +272,10 @@ return packer.startup(function(use)
   use "mtdl9/vim-log-highlighting"
   use "Pocco81/HighStr.nvim"
   -- use "dstein64/vim-startuptime"
-  use "ravenxrz/vim-local-history"
   -- use "henriquehbr/nvim-startup.lua"
-  -- use "AckslD/nvim-neoclip.lua"
+  use "AckslD/nvim-neoclip.lua"
   use "vim-test/vim-test"
-  use {
-    "rcarriga/vim-ultest",
-    run = ":UpdateRemotePlugins"
-  }
-  use { 'michaelb/sniprun', run = 'bash ./install.sh' }
+
   -- use "ravenxrz/DoxygenToolkit.vim"
   use "Pocco81/AutoSave.nvim"
   use "djoshea/vim-autoread"
@@ -301,3 +287,5 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
+
+-- No used 
