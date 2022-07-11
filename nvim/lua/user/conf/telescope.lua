@@ -1,6 +1,4 @@
 -- NOTE: install ripgrep for live_grep picker
-
--- ====for live_grep raw====:
 -- for rp usage: reference: https://segmentfault.com/a/1190000016170184
 -- -i ignore case
 -- -s 大小写敏感
@@ -208,7 +206,7 @@ telescope.setup {
   },
 }
 
--- telescope.load_extension("frecency")
+telescope.load_extension("frecency")
 telescope.load_extension('fzf')
 telescope.load_extension("ui-select")
 telescope.load_extension('dap')

@@ -85,19 +85,22 @@ return packer.startup(function(use)
   use "rcarriga/nvim-notify" -- notify
   use "tami5/sqlite.lua"  -- NOTE: need to install sqlite lib
   use "kyazdani42/nvim-web-devicons" -- icons
+  use {
+    "Yggdroot/LeaderF",
+    run = ":LeaderfInstallCExtension"
+  }
 
   -- Telescope
   use "nvim-telescope/telescope-live-grep-args.nvim"
   use {
     "nvim-telescope/telescope.nvim",
-    tag = "nvim-0.6",
   }
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   }
 
-  --use "nvim-telescope/telescope-frecency.nvim"
+  use "nvim-telescope/telescope-frecency.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
   use "nvim-telescope/telescope-rg.nvim"
   use "MattesGroeger/vim-bookmarks"
@@ -129,6 +132,8 @@ return packer.startup(function(use)
   -- use "RishabhRD/nvim-lsputils"
   use "kosayoda/nvim-lightbulb" -- code action
   use "ray-x/lsp_signature.nvim" -- show function signature when typing
+  use 'inkarkat/vim-ingo-library'
+  use 'inkarkat/vim-mark'
   -- use {
   --   "ray-x/guihua.lua",
   --   run = 'cd lua/fzy && make'
@@ -139,10 +144,10 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "terrortylor/nvim-comment"
   use "Shatur/neovim-session-manager"
+
   -- cmp plugins
   use {
     "hrsh7th/nvim-cmp",
-    -- commit = "4f1358e659d51c69055ac935e618b684cf4f1429",
   } -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -164,7 +169,7 @@ return packer.startup(function(use)
   use "nvim-pack/nvim-spectre" -- search and replace pane
   -- use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
   -- use "code-biscuits/nvim-biscuits" -- AST enhance, require treesitter
-  use "tpope/vim-repeat" --  . command enhance
+  --use "tpope/vim-repeat" --  . command enhance
   use "tpope/vim-surround" -- vim surround
   -- use "terryma/vim-expand-region" -- expand/shrink region by +/-
   -- use "meain/vim-printer"
@@ -202,7 +207,6 @@ return packer.startup(function(use)
   -- Git
   use {
     "lewis6991/gitsigns.nvim",
-    tag = "v0.4",
   }
   use 'sindrets/diffview.nvim'
   -- use "tanvirtin/vgit.nvim"
@@ -215,10 +219,10 @@ return packer.startup(function(use)
   -- use "navarasu/onedark.nvim"
   use({
     "catppuccin/nvim",
+    as = "catppuccin"
   })
   use {
     "projekt0n/github-nvim-theme",
-    tag = "v0.0.4",
   }
 
   -- use "folke/tokyonight.nvim"
@@ -251,13 +255,10 @@ return packer.startup(function(use)
   use "j-hui/fidget.nvim" -- show lsp progress
   -- use "sindrets/winshift.nvim" -- rerange window layout
   use "simeji/winresizer"
+
   -- litee family
-  use {
-    "ldelossa/litee.nvim",
-  }
-  use {
-    "ldelossa/litee-calltree.nvim",
-  }
+  -- use "ldelossa/litee.nvim"
+  -- use "ldelossa/litee-calltree.nvim"
 
   -- tools
   -- use "cdelledonne/vim-cmake"
