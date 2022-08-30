@@ -128,6 +128,11 @@ local mappings = {
     s = {"<cmd>CMake set_target_args<CR>", "SetArg"},
   },
 
+  t = {
+      name = "CMake_2",
+      t = {"<cmd>CMake build_and_run<CR>", "Run"},
+  },
+
   d = {
     name = "Debug",
     R = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },

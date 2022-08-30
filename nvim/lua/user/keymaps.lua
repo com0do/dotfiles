@@ -123,6 +123,7 @@ keymap("n", "<Space>=", ":resize +6<CR>", opts)
 keymap("n", "<Space>-", ":resize -6<CR>", opts)
 keymap("n", "<Space>.", ":vertical resize +6<CR>", opts)
 keymap("n", "<Space>,", ":vertical resize -6<CR>", opts)
+keymap("n", "<Space>cp", ":set nonumber norelativenumber<CR>", opts)
 
 -- ALT+q 回 Normal 模式
 keymap("t", "<m-q>", [[<C-\><C-n>]], opts)
@@ -262,6 +263,12 @@ keymap("n", "K", "<cmd>lua require'dapui'.eval()<cr>", opts)
 -- keymap("n", "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 
+keymap("n", "<leader>tt", "<Plug>(Translate)", opts)
+keymap("v", "<leader>tt", "<Plug>(TranslateV)", opts)
+keymap("n", "<leader>tw", "<Plug>(TranslateW)", opts)
+keymap("v", "<leader>tw", "<Plug>(TranslateWV)", opts)
+keymap("n", "<leader>tr", "<Plug>(TranslateR)", opts)
+keymap("v", "<leader>tr", "<Plug>(TranslateRV)", opts)
 
 -- comment
 --keymap("n", "gcf", "<cmd>Dox<cr>", opts)

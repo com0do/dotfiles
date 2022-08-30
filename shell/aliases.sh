@@ -1,162 +1,106 @@
-# Use colors in coreutils utilities output
-if ls --help 2>&1 | grep -q -- --color
-then alias ls='ls --color=auto -F'
-else
-    alias ls='ls -FG'
-fi
-alias grep='grep --color'
+alias Q='exit'
+alias cctrans="proxychains trans :zh"
+alias cclg='lazygit'
+alias ccqv2ray="nohup Qv2ray > ~/test/nohup.out &"
+#alias ccserial="sudo putty -load serial-1 &"
+alias ccserial="sudo minicom -s /dev/ttyUSB0"
 
-# ls aliases
-alias ll='ls -lah'
-alias la='ls -A'
-alias l='ls'
+#alias esp_p1_app2='sudo python /home/rex/YeelightWorkspace/esp32_mi2x/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 --port /dev/ttyUSB1 --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect 0x10000 miio_app_crc.bin 0x1f0000 miio_app_crc.bin'
+#sudo python /home/rex/YeelightWorkspace/esp32_mi2x/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 --port /dev/ttyUSB2 --baud 921600 --before default_reset --after hard_reset --flash_mode dio --flash_freq 40m read_flash 0x3e4000 0x4000 homekit_bin.bin
 
-# Aliases to protect against overwriting
-alias cp='cp -i'
-alias mv='mv -i'
+# esp32
+alias ccidf='. $HOME/install/work/esp32_mi2x/esp-idf/export.sh'
+alias ccidf_3='export PATH="$HOME/tools/xtensa-esp32-elf/bin:$PATH" && source p2/bin/activate'
+alias ccflashing="python  ../esp-idf/components/esptool_py/esptool/esptool.py   --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect  0x10000"
+alias ccflashingB="python  ../esp-idf/components/esptool_py/esptool/esptool.py   --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect  0x1f0000"
+alias ccflashing_4M="python  ../esp-idf/components/esptool_py/esptool/esptool.py   --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect  0x0"
+alias ccflashingRead="python  ../esp-idf/components/esptool_py/esptool/esptool.py   --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after hard_reset read_flash 0x0 0x400000"
+alias cchomekitRead="python  ../esp-idf/components/esptool_py/esptool/esptool.py   --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after hard_reset read_flash 0x3e4000 0x4000"
+alias cchomekitWrite="python  ../esp-idf/components/esptool_py/esptool/esptool.py   --chip esp32 --port /dev/ttyUSB0 --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect  0x3e4000"
 
-# git related aliases
-alias gag='git exec ag'
 
-# g++ aliases
-alias g++='g++ -std=c++11'
+# chip
+alias cchip='cd ~/install/work/matter_esp32/project'
+alias cchipT='. ~/install/work/esp-idf/export.sh && cd ~/code/connectedhomeip'
+alias cchipCtl='. ./out/python_env/bin/activate'
 
-# Update dotfiles
-dfu() {
-    (
-        cd ~/.dotfiles && git pull --ff-only && ./install -q
-    )
-}
+# directory
+alias ccclion="nohup clion > ~/test/nohup.out &"
+alias ccgate="cd /home/carlos/install/work/yiot_mesh_gateway/rtl819x-SDK-v3.4.11E-full-package/rtl819x"
+alias ccesp="cd /home/carlos/install/work/esp32_mi2x/miio_project"
+alias ccesp_tmp="cd /home/carlos/install/work/tmp/esp32_mi2x/miio_project"
+alias ccuni="cd /home/carlos/install/work/commercial_lighting"
 
-# Use pip without requiring virtualenv
-syspip() {
-    PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
+# ssh
+alias cchss="ssh xincui@10.67.30.52"
+alias cchlr="ssh xincui@10.67.34.208"
+alias cc12="ssh cuixingang@192.168.0.12"
+alias ccg1="ssh carlos@10.243.226.139"
+alias ccautobuild="ssh auto_build@192.168.0.12"
+alias cc60="ssh cuixingang@192.168.0.60"
+alias ccwrt="ssh  root@192.168.9.1"
+alias ccthread="cd /home/carlos/code/ot-git"
+alias cchc32='git clone ssh://pub_git@192.168.1.96:24396/home/pub_git/hc32f460'
+alias ccot_git='git clone ssh://collaboration@localhost:/home/collaboration/ot-git'
 
-syspip2() {
-    PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
-}
+# python version switch
+alias ccpythonv="python --version"
+#alias ccpython2="echo 1 | sudo update-alternatives --config python"
+alias ccpython2='virtualenv  -p /usr/bin/python2.7 p2 --system-site-package && source p2/bin/activate'
+#alias ccpython3="echo 0 | sudo update-alternatives --config python"
 
-syspip3() {
-    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
-}
+# alias
+alias ccalias="vi ~/.bash_aliases"
+alias ccbashrc='source ~/.bashrc'
 
-# cd to git root directory
-alias cdgr='cd "$(git root)"'
+# PATH
+alias ccpath="echo $PATH|tr : \\\n"
+alias ccgcc='export PATH="$HOME/tools/gcc-arm-none-eabi-7-2018-q2-update/bin:$PATH"'
 
-# Create a directory and cd into it
-mcd() {
-    mkdir "${1}" && cd "${1}"
-}
+# pyocd
+alias ccocd='pyocd flash -t hc32f460xe'
 
-# Jump to directory containing file
-jump() {
-    cd "$(dirname ${1})"
-}
-
-# cd replacement for screen to track cwd (like tmux)
-scr_cd()
+# sshfs
+alias ccfw_build="sudo sshfs -o cache=yes,allow_other auto_build@192.168.0.12:/yeedata/fw_builds ~/hardware/fw_builds/"
+#alias cchss_fs="sudo sshfs -o cache=yes,allow_other xincui@10.67.30.52:/home/xincui/work/hss ~/work/remote/hss/"
+#alias cchss_tools="sudo sshfs -o cache=yes,allow_other xincui@10.67.30.52:/imsgit/Tools/ims_22.8_reg/ims_tools /imsgit/Tools/ims_22.8_reg/ims_tools"
+#alias cchlr_fs="sudo sshfs -o cache=yes,allow_other xincui@10.67.34.208:/home/xincui/work/hlr/HLR ~/work/remote/hlr/"
+ccfs()
 {
-    builtin cd $1
-    screen -X chdir "$PWD"
+  if [ $# -ne 1 ] ;then echo "usage: ccfs remote_host" && return ;fi
+  if [[ $1 == hss* ]] ; then
+    sudo sshfs -o cache=yes,allow_other xincui@10.67.30.52:/home/xincui/work/hss ~/work/remote/hss/ && df -h|grep hss
+  elif [[ $1 == hlr* ]] ; then
+    sudo sshfs -o cache=yes,allow_other xincui@10.67.34.208:/home/xincui/work/hlr/HLR ~/work/remote/hlr/ && df -h|grep hlr
+  else
+    printf "what up: %s\n" $1
+  fi
 }
+# shit
+alias coverage='scp -r hss:/home/xincui/work/hss/ims_mt/reports/code_coverage /mnt/c/N-20W1PF3L36PJ-Data/xincui/Desktop/'
 
-if [[ -n $STY ]]; then
-    alias cd=scr_cd
-fi
+# system tool
+alias ccshutdown="sudo shutdown now"
+alias ccjlinkview="JLinkRTTViewerExe &"
+alias ccjlinkdownload="JFlashLiteExe &"
 
-# Go up [n] directories
-up()
-{
-    local cdir="$(pwd)"
-    if [[ "${1}" == "" ]]; then
-        cdir="$(dirname "${cdir}")"
-    elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
-        echo "Error: argument must be a number"
-    elif ! [[ "${1}" -gt "0" ]]; then
-        echo "Error: argument must be positive"
-    else
-        for ((i=0; i<${1}; i++)); do
-            local ncdir="$(dirname "${cdir}")"
-            if [[ "${cdir}" == "${ncdir}" ]]; then
-                break
-            else
-                cdir="${ncdir}"
-            fi
-        done
-    fi
-    cd "${cdir}"
-}
 
-# Execute a command in a specific directory
-xin() {
-    (
-        cd "${1}" && shift && "${@}"
-    )
-}
+# git
+alias ccpull='git pull --rebase'
+alias ccgit_root='cd $(git rev-parse --show-toplevel)'
 
-# Check if a file contains non-ascii characters
-nonascii() {
-    LC_ALL=C grep -n '[^[:print:][:space:]]' "${1}"
-}
+# homekit
+alias cckit_server='cd /home/carlos/install/tools/homekit_factory_toolv30/homekit_server/src/'
+alias cckit_client='cd /home/carlos/install/tools/homekit_factory_toolv30/homekit_download_client/src/ '
+alias cckit_check='cd /home/carlos/install/tools/homekit_factory_toolv30/homekit_check_client/src/'
 
-# Fetch pull request
+# vim
+alias ccvim='cd ~/.vim/vim-init/init && vi init-pl*'
+#alias nvim='proxychains nvim'
 
-fpr() {
-    if ! git rev-parse --git-dir > /dev/null 2>&1; then
-        echo "error: fpr must be executed from within a git repository"
-        return 1
-    fi
-    (
-        cdgr
-        if [ "$#" -eq 1 ]; then
-            local repo="${PWD##*/}"
-            local user="${1%%:*}"
-            local branch="${1#*:}"
-        elif [ "$#" -eq 2 ]; then
-            local repo="${PWD##*/}"
-            local user="${1}"
-            local branch="${2}"
-        elif [ "$#" -eq 3 ]; then
-            local repo="${1}"
-            local user="${2}"
-            local branch="${3}"
-        else
-            echo "Usage: fpr [repo] username branch"
-            return 1
-        fi
+# test
+alias cctest='vi ~/test/hello/main.cpp'
 
-        git fetch "git@github.com:${user}/${repo}" "${branch}:${user}/${branch}"
-    )
-}
+# private setting
+source ~/.aliases_private.sh
 
-# Serve current directory
-
-serve() {
-    ruby -run -e httpd . -p "${1:-8080}"
-}
-
-# Mirror a website
-alias mirrorsite='wget -m -k -K -E -e robots=off'
-
-# Mirror stdout to stderr, useful for seeing data going through a pipe
-alias peek='tee >(cat 1>&2)'
-
-# clean window output
-alias clc="clear"
-
-# proxy config for wsl
-hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
-alias setss='export all_proxy="socks5://${hostip}:7890";'
-alias unsetss='unset all_proxy'
-
-#  windows exec aliases
-# https://stackoverflow.com/questions/7131670/make-a-bash-alias-that-takes-a-parameter
-# NOTE: bash function can be called from shell command
-chrome() {
-  chrome.exe file://wsl.localhost/Ubuntu-20.04`pwd`/$1
-}
-
-alias opencwd="explorer.exe ."
-alias img="Honeyview.exe"
-alias typora="Typora.exe"

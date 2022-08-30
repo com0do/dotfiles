@@ -15,13 +15,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+vim.cmd [[let g:auto_save = 1]]
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+--vim.cmd [[
+--  augroup packer_user_config
+--    autocmd!
+--    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--  augroup end
+--]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -278,7 +279,8 @@ return packer.startup(function(use)
   use "vim-test/vim-test"
 
   -- use "ravenxrz/DoxygenToolkit.vim"
-  use "Pocco81/AutoSave.nvim"
+  -- use "Pocco81/auto-save.nvim"
+  use "907th/vim-auto-save"
   use "djoshea/vim-autoread"
   -- use "chipsenkbeil/distant.nvim"
 
